@@ -4,18 +4,20 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 
 public class BaseSteps {
-	public final static int TIME = 2000;
-	public static WebDriver driver;
-	public void launchBrowser() {
-		Properties prop = PropertyReader.readProperties();
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get(prop.getProperty("URL"));
-			
-		}
+	
+	    protected static WebDriver driver;
+	    public final static int TIME = 3000;
+	    public void launchBrowser() {
+	     
+	    	Properties prop = PropertyReader.readProperties();
+	        	driver = new ChromeDriver();
+	            driver.manage().window().maximize(); 
+	            driver.get(prop.getProperty("URL"));
+	      }
 		
 public static void sleep() {
 	try {

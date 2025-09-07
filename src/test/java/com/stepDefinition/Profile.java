@@ -1,21 +1,46 @@
 package com.stepDefinition;
 
+import org.testng.Assert;
+
+import com.aventstack.extentreports.ExtentTest;
+import com.pages.LoginPage;
 import com.setup.BaseSteps;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Profile extends BaseSteps
 {
-	@Given("I am on the MagicBricks login page")
-	public void i_am_on_the_magic_bricks_login_page() {
-	    launchBrowser();
+	LoginPage loginPage;
+	ExtentTest extTest;
+	@Given("I launch the magicbricks website")
+	public void i_launch_the_magicbricks_website() {
+		launchBrowser();
 	}
-	    @When("I click on Google")
-	    public void i_click_on_google() {
-	        // Write code here that turns the phrase above into concrete actions
-	        throw new io.cucumber.java.PendingException();
-	    }
-
-	
+	@Given("I am on the homepage")
+	public void i_am_on_the_homepage() {
+		loginPage = new LoginPage(driver,extTest);
+        loginPage.clickLoginBtn();
+	}
+	@When("I click on the login button")
+	public void i_click_on_the_login_button() {
+		loginPage.clickinnerloginBtn();
+	}
+	@When("I am redirected to the login page and click on phonenumber")
+	public void i_am_redirected_to_the_login_page_and_click_on_phonenumber() {
+		loginPage.switchToLoginTab();
+		loginPage.clickphonenumber();
+	}
+	@When("I enter the otp")
+	public void i_enter_the_otp() {
+		loginPage.enterotp();
+	    
+	}
+	@Then("I should be redirected to the homepage")
+	public void i_should_be_redirected_to_the_homepage() {
+		boolean actResult =loginPage.validateLogin();
+		Assert.assertTrue(actResult);
+	}
 }
+
