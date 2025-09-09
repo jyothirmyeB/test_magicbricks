@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>2/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>3/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Sep 09 08:16:04 IST 2025</td>
+<td>Started on:</td><td>Tue Sep 09 18:16:13 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>94 seconds (94126 ms)</td>
+<tr><td>Total time:</td><td>152 seconds (152827 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,22 +76,22 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search and validate property listings by location", "Magicbricks Property Search"</td>
-<td><div><pre>java.lang.AssertionError: Failed to select budget from dropdown expected [true] but found [false]
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify shortlisting a property from the listing results", "Shortlist property from listing page"</td>
+<td><div><pre>java.lang.AssertionError: Failed to click on the shortlisted property. expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1590)
 	at org.testng.Assert.assertTrue(Assert.java:57)
-	at com.stepDefinition.searchHome.the_user_selects_a_budget_range_from_the_dropdown(searchHome.java:41)
-	at ✽.the user selects a budget range from the dropdown(file:///C:/Users/Jyothirmye/eclipse-workspace/Test_Magicbricks/src/test/resources/Features/searchHome.feature:7)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1920147706", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1920147706'><pre>java.lang.AssertionError: Failed to select budget from dropdown expected [true] but found [false]
+	at com.stepDefinition.shortlistProperty.i_click_on_property(shortlistProperty.java:43)
+	at ✽.I click on property(file:///C:/Users/Jyothirmye/eclipse-workspace/Test_Magicbricks/src/test/resources/Features/shortlistProperty.feature:8)
+</pre></div><a href='#' onClick='toggleBox("stack-trace539682927", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace539682927'><pre>java.lang.AssertionError: Failed to click on the shortlisted property. expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1590)
 	at org.testng.Assert.assertTrue(Assert.java:57)
-	at com.stepDefinition.searchHome.the_user_selects_a_budget_range_from_the_dropdown(searchHome.java:41)
-	at ✽.the user selects a budget range from the dropdown(file:///C:/Users/Jyothirmye/eclipse-workspace/Test_Magicbricks/src/test/resources/Features/searchHome.feature:7)
+	at com.stepDefinition.shortlistProperty.i_click_on_property(shortlistProperty.java:43)
+	at ✽.I click on property(file:///C:/Users/Jyothirmye/eclipse-workspace/Test_Magicbricks/src/test/resources/Features/shortlistProperty.feature:8)
 </pre></div></td>
-<td>19</td>
+<td>25</td>
 <td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
@@ -103,9 +103,14 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search and validate property listings by location", "Magicbricks Property Search"</td>
+<td></td>
+<td>27</td>
+<td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
+<tr>
 <td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Valid user login successfully", "Test Buying a property"</td>
 <td></td>
-<td>65</td>
+<td>88</td>
 <td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
 <tr>
 <td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Get the details of the property and owner successfully", "Test Buying a property"</td>
