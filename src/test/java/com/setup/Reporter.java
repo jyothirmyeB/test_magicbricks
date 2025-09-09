@@ -16,42 +16,57 @@ import com.aventstack.extentreports.Status;
 
 public class Reporter {
 
-	public static void generateReport(WebDriver driver, ExtentTest extTest, Status status, String stepMessage) {
+    public static void generateReport(WebDriver driver, ExtentTest extTest, Status status, String stepMessage) {
+        if (extTest == null) {
+            System.out.println("ExtentTest object is null. Skipping report logging.");
+            return;
+        }
 
-		if (status.equals(Status.PASS)) {
-			System.out.println(" ******* " + stepMessage + " is passed");
-			extTest.log(status, stepMessage);
-		} else if (status.equals(Status.FAIL)) {
-			System.out.println("***************** step is failed");
-			String screenShotName = captureScreenshot(driver, stepMessage);
-			extTest.log(status, stepMessage, MediaEntityBuilder.createScreenCaptureFromPath(screenShotName).build());
+        if (status.equals(Status.PASS)) {
+            System.out.println(" ******* " + stepMessage + " is passed");
+            extTest.log(status, stepMessage);
+        } else if (status.equals(Status.FAIL)) {
+            System.out.println("***************** step is failed");
+            String screenshotPath = null;
 
-		}
-	}
+            // take screenshot only if driver is valid
+            if (driver != null) {
+                screenshotPath = captureScreenshot(driver, stepMessage);
+            }
 
-	public static String captureScreenshot(WebDriver driver, String errorMessage) {
+            try {
+                if (screenshotPath != null) {
+                    extTest.log(status, stepMessage,
+                            MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+                } else {
+                    extTest.log(status, stepMessage + " (No screenshot - driver was null)");
+                }
+            } catch (Exception e) {
+                extTest.log(status, stepMessage + " (Screenshot capture failed: " + e.getMessage() + ")");
+            }
+        }
+    }
 
-		String userDir = System.getProperty("user.dir");
+    public static String captureScreenshot(WebDriver driver, String errorMessage) {
+        String userDir = System.getProperty("user.dir");
 
-		// to take time stamp
-		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy_HH_mm_ss"); // yyyy-MM-dd
-		String dateTime = sdf.format(date); // 27-01-2025_16_43_54
-		String fileName = userDir + "\\screenshots\\" + errorMessage + "_" + dateTime + ".png";
+        // timestamped file name
+        String dateTime = new SimpleDateFormat("dd-MM-yyyy_HH_mm_ss").format(new Date());
+        String fileName = userDir + "\\screenshots\\" + errorMessage.replaceAll("[^a-zA-Z0-9]", "_") 
+                          + "_" + dateTime + ".png";
 
-		TakesScreenshot scrShot = (TakesScreenshot) driver;
-		File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
-		File destFile = new File(fileName); // fileName System.currentTimeMillis()
-		try {
-			FileUtils.copyFile(srcFile, destFile);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		// TODO Auto-generated catch block
-		return fileName;
-	}
-
+        try {
+            File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            File destFile = new File(fileName);
+            FileUtils.copyFile(srcFile, destFile);
+            return fileName;
+        } catch (Exception e) {
+            System.out.println("Failed to capture screenshot: " + e.getMessage());
+            return null;
+        }
+    }
 }
+
+
 
 

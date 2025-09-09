@@ -4,28 +4,26 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-
 
 public class BaseSteps {
-	
-	    protected static WebDriver driver;
-	    public final static int TIME = 3000;
-	    public void launchBrowser() {
-	     
-	    	Properties prop = PropertyReader.readProperties();
-	        	driver = new ChromeDriver();
-	            driver.manage().window().maximize(); 
-	            driver.get(prop.getProperty("URL"));
-	      }
-		
-public static void sleep() {
-	try {
-		Thread.sleep(TIME);
-	} catch (InterruptedException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-}
-	}
+    
+    public static WebDriver driver;  // shared driver
+    public final static int TIME = 3000;
 
+    public static void launchBrowser() {
+        if (driver == null) {   // avoid multiple launches
+            Properties prop = PropertyReader.readProperties();
+            driver = new ChromeDriver();
+            driver.manage().window().maximize(); 
+            driver.get(prop.getProperty("URL"));
+        }
+    }
+    
+    public static void sleep() {
+        try {
+            Thread.sleep(TIME);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
