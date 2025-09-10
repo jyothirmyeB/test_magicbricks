@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Jyothirmye\AppData\Local\Temp\testng-eclipse-1470135785\testng-customsuite.xml</span>
+                    <span>C:\Users\Jyothirmye\AppData\Local\Temp\testng-eclipse-344970713\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods, 1 failed,   3 passed</span>
+                    <span class="method-stats">4 methods, 2 failed,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -106,6 +106,11 @@
                         <a href="#" panel-name="suite-Default_suite" title="com.runner.TestRunnerTestNG" class="method navigator-link" hash-for-method="runScenario(&quot;Verify shortlisting a property from the listing results&quot;, &quot;Shortlist property from listing page&quot;)">runScenario("Verify shortlisting a property from the listing results", "Shortlist property from listing page")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.runner.TestRunnerTestNG" class="method navigator-link" hash-for-method="runScenario(&quot;Search and validate property listings by location&quot;, &quot;Magicbricks Property Search&quot;)">runScenario("Search and validate property listings by location", "Magicbricks Property Search")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                   <li>
@@ -115,11 +120,6 @@
                       <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
                     </span>
                     <div class="method-list-content passed suite-Default_suite">
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.runner.TestRunnerTestNG" class="method navigator-link" hash-for-method="runScenario(&quot;Search and validate property listings by location&quot;, &quot;Magicbricks Property Search&quot;)">runScenario("Search and validate property listings by location", "Magicbricks Property Search")</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="com.runner.TestRunnerTestNG" class="method navigator-link" hash-for-method="runScenario(&quot;Valid user login successfully&quot;, &quot;Test Buying a property&quot;)">runScenario("Valid user login successfully", "Test Buying a property")</a> <!-- method navigator-link -->
@@ -154,12 +154,30 @@
                   </a> <!-- runScenario("Verify shortlisting a property from the listing results", "Shortlist property from listing page") -->
                   <span class="method-name">runScenario</span>
                   <span class="parameters">("Verify shortlisting a property from the listing results","Shortlist property from listing page")</span>
-                  <div class="stack-trace">java.lang.AssertionError: Failed to click on the shortlisted property. expected [true] but found [false]
+                  <div class="stack-trace">java.lang.AssertionError: Failed to view shortlisted properties. expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1590)
 	at org.testng.Assert.assertTrue(Assert.java:57)
-	at com.stepDefinition.shortlistProperty.i_click_on_property(shortlistProperty.java:43)
-	at ✽.I click on property(file:///C:/Users/Jyothirmye/eclipse-workspace/Test_Magicbricks/src/test/resources/Features/shortlistProperty.feature:8)
+	at com.stepDefinition.shortlistProperty.i_view_the_shortlisted_properties(shortlistProperty.java:37)
+	at ✽.I view the shortlisted properties(file:///C:/Users/Jyothirmye/eclipse-workspace/Test_Magicbricks/src/test/resources/Features/shortlistProperty.feature:7)
+
+</div> <!-- stack-trace -->
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Search and validate property listings by location&quot;, &quot;Magicbricks Property Search&quot;)">
+                  </a> <!-- runScenario("Search and validate property listings by location", "Magicbricks Property Search") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Search and validate property listings by location","Magicbricks Property Search")</span>
+                  <div class="stack-trace">java.lang.AssertionError: User not redirected to listing page or Sort By dropdown not visible expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.stepDefinition.searchHome.the_user_should_be_redirected_to_the_property_listing_page(searchHome.java:54)
+	at ✽.the user should be redirected to the property listing page(file:///C:/Users/Jyothirmye/eclipse-workspace/Test_Magicbricks/src/test/resources/Features/searchHome.feature:9)
 
 </div> <!-- stack-trace -->
                   <em>
@@ -174,16 +192,6 @@
               <span class="class-name">com.runner.TestRunnerTestNG</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="runScenario(&quot;Search and validate property listings by location&quot;, &quot;Magicbricks Property Search&quot;)">
-                  </a> <!-- runScenario("Search and validate property listings by location", "Magicbricks Property Search") -->
-                  <span class="method-name">runScenario</span>
-                  <span class="parameters">("Search and validate property listings by location","Magicbricks Property Search")</span>
-                  <em>
-(Runs Cucumber Scenarios)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="runScenario(&quot;Valid user login successfully&quot;, &quot;Test Buying a property&quot;)">
@@ -209,7 +217,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Jyothirmye\AppData\Local\Temp\testng-eclipse-1470135785\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Jyothirmye\AppData\Local\Temp\testng-eclipse-344970713\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -270,24 +278,24 @@ data.addRows(4);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'com.runner.TestRunnerTestNG')
-data.setCell(0, 3, 88492);
+data.setCell(0, 3, 71767);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'runScenario')
 data.setCell(1, 2, 'com.runner.TestRunnerTestNG')
-data.setCell(1, 3, 27410);
+data.setCell(1, 3, 22205);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'runScenario')
 data.setCell(2, 2, 'com.runner.TestRunnerTestNG')
-data.setCell(2, 3, 25602);
+data.setCell(2, 3, 17640);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'runScenario')
 data.setCell(3, 2, 'com.runner.TestRunnerTestNG')
-data.setCell(3, 3, 3204);
+data.setCell(3, 3, 166);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -315,30 +323,32 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">com.runner.TestRunnerTestNG</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@329dc214)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@4168f3d9)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">runScenario("Get the details of the property and owner successfully", "Test Buying a property")</span>
-                <span class="method-start">7259 ms</span>
+                <span class="method-start">4988 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">runScenario("Valid user login successfully", "Test Buying a property")</span>
-                <span class="method-start">10471 ms</span>
+                <span class="method-start">5159 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">runScenario("Search and validate property listings by location", "Magicbricks Property Search")</span>
-                <span class="method-start">98966 ms</span>
+                <span class="method-start">76930 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">runScenario("Verify shortlisting a property from the listing results", "Shortlist property from listing page")</span>
-                <span class="method-start">126378 ms</span>
+                <span class="method-start">99137 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">151987 ms</span>
+                <span class="method-start">116783 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
