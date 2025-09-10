@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -110,6 +111,19 @@ public class ShortlistPropertyPage {
             return false;
         }
     }
+    public boolean viewBrochureIsPresent() {
+        try {
+            // Wait for the element to be present on the page
+            wait.until(ExpectedConditions.presenceOfElementLocated(Locators.viewBrochure));
+            Reporter.generateReport(driver, extTest, Status.PASS, "View Brochure element is present on the page.");
+            return true;
+        } catch (Exception e) {
+            Reporter.generateReport(driver, extTest, Status.FAIL, "View Brochure element is not present on the page: " + e.getMessage());
+            return false;
+        }
+    }
+
+}
     
     /**
      * Closes the current browser tab and switches back to the original tab.
@@ -133,4 +147,3 @@ public class ShortlistPropertyPage {
             return false;
         }
     }*/
-}

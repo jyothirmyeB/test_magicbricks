@@ -51,34 +51,26 @@ public class SearchHomePage {
 
     // Select property type
     public boolean selectPropertyType() {
-        try {
-            WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(Locators.clickPropertType));
-            dropdown.click();
+		try {
+			WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(Locators.clickPropertType));
+			dropdown.click();
 
-            // First try to clear/deselect all (if available)
-            try {
-                WebElement clearOption = wait.until(ExpectedConditions.elementToBeClickable(Locators.clearPropertyType));
-                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", clearOption);
-                Reporter.generateReport(driver, extTest, Status.INFO, "Cleared existing property type selection");
-            } catch (TimeoutException te) {
-                Reporter.generateReport(driver, extTest, Status.INFO, "No clear option available, continuing...");
-            }
+		
+			WebElement option = wait.until(ExpectedConditions.elementToBeClickable(Locators.selectPropertyType));
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", option);
+			WebElement close = wait.until(ExpectedConditions.elementToBeClickable(Locators.closePropertyType));
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", close);
+			// close.click();
 
-            // Now select the new option
-            WebElement option = wait.until(ExpectedConditions.elementToBeClickable(Locators.selectPropertyType));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", option);
-            WebElement close = wait.until(ExpectedConditions.elementToBeClickable(Locators.closePropertyType));
-            close.click();
+			Reporter.generateReport(driver, extTest, Status.PASS, "Selected property type");
+			return true;
+		} catch (Exception e) {
+			Reporter.generateReport(driver, extTest, Status.FAIL, "Failed to select property type: " + e.getMessage());
+			return false;
+		}
 
-            Reporter.generateReport(driver, extTest, Status.PASS, "Selected property type");
-            return true;
-        } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "Failed to select property type: " + e.getMessage());
-            return false;
-        }
-        
-        
-    }
+	}
+    
  // Select budget
     public boolean selectBudget() {
         try {

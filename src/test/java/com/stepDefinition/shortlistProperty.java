@@ -42,5 +42,10 @@ public class shortlistProperty extends BaseSteps {
 		boolean actResult = shortlistPage.clickFirstShortlistedProperty();
         Assert.assertTrue(actResult, "Failed to click on the shortlisted property.");
     }
+	@Then("i validate the brochure in the property page")
+	public void i_validate_the_brochure_in_the_property_page() {
+		boolean actResult = shortlistPage.viewBrochureIsPresent();
+	    Assert.assertTrue(actResult, "View Brochure element is not present on the page");
+	}
 
 }
