@@ -60,5 +60,16 @@ public class Locators {
      public static By locationErrorMessage = By.xpath("//*[@id=\"location-error-id\"]");
      public static By crossloc =By.xpath("//*[@id=\"keyword_autoSuggestSelectedDiv\"]/div/div[2]");
      
+  //new locators for invalid explore locality
+     public static By Buybar = By.xpath("//*[@id=\"buyheading\"]"); 
+     //public static By tipsandguidesbar = By.xpath("//*[@id=\"swiper-wrapper-3663ab210846eee45\"]/div/div[5]/ul/li[4]/a");
+     public static By errormessage = By.xpath("//*[@id=\"locExploreEmpty\"]");
+     public static final By tipsAndGrowthButton = By.linkText("Tips and Guides");
+  //locators for invalid compare locality
+     public static By errormessage1 = By.xpath("//*[@id=\"locOneValid\"]");
+     public static By errormessage2 = By.xpath("//*[@id=\"locTwoValid\"]");
+     public static By errorempty1 = By.xpath("//*[@id=\"locOneEmpty\"]");
+     public static By errorempty2 = By.xpath("//*[@id=\"locTwoEmpty\"]");
+     
 }
      

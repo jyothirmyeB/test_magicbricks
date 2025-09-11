@@ -20,7 +20,7 @@ public class invalidlocation extends BaseSteps {
     public void startBrowser() {
         launchBrowser();
         driver.get("https://www.magicbricks.com/");
-        System.out.println("🔄 Browser launched fresh for InvalidLogin scenario");
+        System.out.println(" Browser launched fresh for InvalidLogin scenario");
     }
 
     @After("@invalidsearch")
@@ -28,7 +28,7 @@ public class invalidlocation extends BaseSteps {
         if (driver != null) {
             driver.quit();
             driver = null;
-            System.out.println("✅ Browser closed after InvalidLogin scenario");
+            System.out.println(" Browser closed after InvalidLogin scenario");
         }
     }
     
