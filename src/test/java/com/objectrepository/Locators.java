@@ -16,8 +16,9 @@ public class Locators {
      public static By continuebtn = By.xpath("//*[@id=\"verifyOtpDiv\"]/div[2]/div[3]/button");
      public static By closepopup = By.xpath("//*[@id=\"userOnboardingWidget\"]/div/div[1]");
     
-     public static By enterlocation = By.id("keyword");
+     public static By enterlocation = By.xpath("//*[@id=\"keyword\"]");
      public static By clickPropertType = By.id("propType_buy");
+     public static By selectdropdownloc =By.xpath("//*[@id=\"serachSuggest\"]/div[2]/span");
      public static By clearPropertyType = By.xpath("//*[@id=\"propType_buy\"]/div[2]/div/div/div[1]/div[2]/div[4]");
      public static By dropdownProperType = By.xpath("//*[@id=\"propType_buy\"]/div[1]");
      public static By selectPropertyType = By.id("10002_10003_10021_10022");
@@ -31,8 +32,8 @@ public class Locators {
      public static By searchButton = By.xpath("//*[@id=\"searchFormHolderSection\"]/section/div/div[1]/div[3]/div[4]");
      
      public static By sortBy = By.xpath("//*[@id=\"body\"]/div[5]/div/div/div[1]/div[1]/div[1]");
-     public static By mostrecent = By.xpath("//*[@id=\"body\"]/div[5]/div/div/div[1]/div[1]/div/div[2]/ul/li[4]");
-     public static By shortlistButton = By.xpath("//*[@id=\"cardid81316037\"]/div/div[1]/div[2]/span[2]");
+     public static By hightolow = By.xpath("//*[@id=\"body\"]/div[5]/div/div/div[1]/div[1]/div/div[2]/ul/li[3]");
+     public static By shortlistButton = By.xpath("//*[@id=\"cardid80691623\"]/div/div[1]/div[2]/span[2]");
      public static By mainshortlistbtn = By.xpath("//*[@id=\"propertysrp\"]/div[1]/div/div/div[2]/div[5]/span");
      public static By viewShortlistBtn = By.xpath("//*[@id=\"propertysrp\"]/div[1]/div/div/div[2]/div[5]/div/div/a");
     // public static By shortlistedPropertyCard = By.xpath("//*[@id=\"cardid81306751\"]/div[2]/div[1]");
@@ -54,15 +55,10 @@ public class Locators {
      public static final By compareButtonNew = By.xpath("//*[@id=\"localities\"]/div/div[4]/input");
      public static final By ratingOne = By.xpath("//*[@id=\"rating_1_0\"]/div[1]/div/div[1]/span[1]");
      public static final By ratingTwo = By.xpath("//*[@id=\"rating_2_0\"]/div[1]/div/div[1]/span[1]");
-     //for Homeloans offer checking
-     public static By buyTab = By.xpath("//*[@id=\"headerDiv\"]/header/div/div[3]/div[1]/ul/li[1]/a");
-     public static By homeLoansTab = By.xpath("//*[@id=\"headerDiv\"]/header/div/div[3]/div[1]/ul/li[1]/div/div[2]/div[2]/ul/li[3]/span");
-     public static By loanAmountInput = By.xpath("//*[@id=\"loanAmount\"]");
-     public static By cityInput = By.xpath("//*[@id=\"PropertyCity\"]");
-     public static By cityDropdown = By.xpath("//*[@id=\"cityDropdownWebList\"]/li/span");
-     public static By checkOffersButton = By.xpath("//*[@id=\"generate-otp\"]");
-     public static By skipToOffers=By.xpath("[@id=\"HLSkipAll\"]-- skip to offers ");
-     public static By loanReqBox = By.xpath("//*[@id=\"main_offers_section\"]/div[3]/div[2]/div[2]/div[1]");
-     public static By creditScore = By.xpath("//*[@id=\"main_offers_section\"]/div[3]/div[2]/div[2]/div[2]");
+     
+  // New locator for invalid location error message
+     public static By locationErrorMessage = By.xpath("//*[@id=\"location-error-id\"]");
+     public static By crossloc =By.xpath("//*[@id=\"keyword_autoSuggestSelectedDiv\"]/div/div[2]");
+     
 }
      

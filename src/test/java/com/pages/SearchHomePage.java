@@ -1,6 +1,7 @@
 package com.pages;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -37,15 +38,26 @@ public class SearchHomePage {
     
     public boolean enterLocation(String location) {
         try {
-        	
-            WebElement locationBox = wait.until(ExpectedConditions.elementToBeClickable(Locators.enterlocation));
-            locationBox.sendKeys(location);
-            Reporter.generateReport(driver, extTest, Status.PASS, "Entered location: " + location);
-            return true;
-        } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "Failed to enter location: " + e.getMessage());
-            return false;
-        }
+    		  
+    		  WebElement locationBox =
+    		  wait.until(ExpectedConditions.elementToBeClickable(Locators.enterlocation));
+    		  ((JavascriptExecutor) driver).executeScript("arguments[0].click();", locationBox); 
+    		  WebElement locationBox1 =wait.until(ExpectedConditions.elementToBeClickable(Locators.crossloc));
+    		  ((JavascriptExecutor) driver).executeScript("arguments[0].click();",locationBox1); 
+    		  locationBox.clear(); 
+    		  locationBox.sendKeys(location);
+    		   WebElement locationBox2 =wait.until(ExpectedConditions.elementToBeClickable(Locators.selectdropdownloc));
+    		   ((JavascriptExecutor) driver).executeScript("arguments[0].click();",locationBox2); 
+
+
+    		  
+    		  Reporter.generateReport(driver, extTest, Status.PASS, "Entered location: " +
+    		  location); return true; } catch (Exception e) {
+    		  Reporter.generateReport(driver, extTest, Status.FAIL,
+    		  "Failed to enter location: " + e.getMessage()); return false;
+    		  
+    	
+    }
     }
     
 
@@ -132,4 +144,37 @@ public class SearchHomePage {
             return false;
         }
     }
+   /* public boolean validateErrorMessage(String expectedMessage) {
+        try {
+            WebElement errorMessageElement = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.locationErrorMessage));
+            String actualMessage = errorMessageElement.getText().trim();
+            if (actualMessage.equals(expectedMessage)) {
+                Reporter.generateReport(driver, extTest, Status.PASS, "Validated error message: '" + actualMessage + "'.");
+                return true;
+            } else {
+                Reporter.generateReport(driver, extTest, Status.FAIL, "Error message mismatch. Expected: '" + expectedMessage + "', Actual: '" + actualMessage + "'.");
+                return false;
+            }
+        } catch (Exception e) {
+            Reporter.generateReport(driver, extTest, Status.FAIL, "Failed to validate error message: " + e.getMessage());
+            return false;
+        }
+    } */
+    public boolean validateStayOnHome() {
+        try {
+            WebElement buyHeading = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='buyheading']"))
+            );
+            if (buyHeading.isDisplayed()) {
+                Reporter.generateReport(driver, extTest, Status.PASS, "User remained on home page.");
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            Reporter.generateReport(driver, extTest, Status.FAIL, "User did not remain on home page: " + e.getMessage());
+            return false;
+        }
+    }
+
+    
 }

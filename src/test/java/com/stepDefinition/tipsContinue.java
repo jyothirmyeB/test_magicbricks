@@ -34,26 +34,26 @@ public class tipsContinue extends BaseSteps {
         Assert.assertTrue(actResult, "Failed to select the  tab.");
     }
     
-    @When("I click on the compare tab")
+    @When("I click on the Compare tab")
     public void i_click_on_the_compare_tab() {
         boolean actResult = comparePage.clickCompareTab();
         Assert.assertTrue(actResult, "Failed to click on the tab.");
     }
     
-    @When("I enter {string} in the first explore location box")
-    public void i_enter_in_the_first_explore_location_box(String location) {
+    @When("I enter {string} in the first location box")
+    public void i_enter_in_the_first_location_box(String location) {
         boolean actResult = comparePage.enterFirstLocationForComparison(location);
         Assert.assertTrue(actResult, "Failed to enter location: " + location);
     }
     
-    @When("I enter {string} in the second explore location box")
-    public void i_enter_in_the_second_explore_location_box(String secondLocation) {
+    @When("I enter {string} in the second location box")
+    public void i_enter_in_the_second_location_box(String secondLocation) {
         boolean actResult = comparePage.enterSecondLocationForComparison(secondLocation);
         Assert.assertTrue(actResult, "Failed to enter second location: " + secondLocation);
     }
 
     @When("I enter the final Compare button")
-    public void i_enter_the_final_button(String buttonName) {
+    public void i_enter_the_final_button() {
         boolean actResult = comparePage.clickFinalCompareButton();
         Assert.assertTrue(actResult, "Failed to click the final Compare button.");
     }

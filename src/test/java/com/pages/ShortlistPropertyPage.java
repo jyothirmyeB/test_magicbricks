@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.objectrepository.Locators;
+import com.setup.BaseSteps;
 import com.setup.Reporter;
 
 public class ShortlistPropertyPage {
@@ -103,9 +104,10 @@ public class ShortlistPropertyPage {
     }*/
     public boolean sortByFilter() {
     	try {
+    		BaseSteps.sleep();
     		WebElement shortlistBtn1 = wait.until(ExpectedConditions.elementToBeClickable(Locators.sortBy));
     	    shortlistBtn1.click();
-    	    WebElement shortlistBtn2 = wait.until(ExpectedConditions.elementToBeClickable(Locators.mostrecent));
+    	    WebElement shortlistBtn2 = wait.until(ExpectedConditions.elementToBeClickable(Locators.hightolow));
     	    shortlistBtn2.click();
     	    Reporter.generateReport(driver, extTest, Status.PASS, "Sortby most recent filter clicked");
             return true;

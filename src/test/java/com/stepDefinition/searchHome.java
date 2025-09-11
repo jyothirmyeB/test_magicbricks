@@ -4,6 +4,7 @@ import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.pages.SearchHomePage;
+import com.parameters.ExcelReader;
 import com.setup.BaseSteps;
 
 import io.cucumber.java.en.Given;
@@ -14,6 +15,7 @@ public class searchHome extends BaseSteps {
 
     SearchHomePage searchPage;
     ExtentTest extTest = Hooks.extTest;
+    static String[][] excelData;
 
     @Given("the user is on the Magicbricks home page")
     public void the_user_is_on_the_magicbricks_home_page() {
@@ -21,14 +23,21 @@ public class searchHome extends BaseSteps {
         String actUrl = driver.getCurrentUrl();
         Assert.assertTrue(actUrl.contains("magicbricks.com"),
                 "User is not on the Magicbricks home page. Current URL: " + actUrl);
+        
+        if(excelData == null) {
+			excelData = ExcelReader.readdata();
+		}
     }
 
     @When("the user enters {string} in the Search bar")
     public void the_user_enters_in_the_search_bar(String location) {
-   
+    	int row = Hooks.firstrow;
+	    location = excelData[row][0];
         boolean actResult = searchPage.enterLocation(location);
         Assert.assertTrue(actResult, "Failed to enter location: " + location);
     }
+    
+ 
 
     @When("the user selects Property Type from drop down")
     public void the_user_selects_property_type_from_drop_down() {
@@ -50,7 +59,8 @@ public class searchHome extends BaseSteps {
 
     @Then("the user should be redirected to the property listing page")
     public void the_user_should_be_redirected_to_the_property_listing_page() {
-    	boolean actResult = searchPage.validateListingPage();
-        Assert.assertTrue(actResult, "User not redirected to listing page or Sort By dropdown not visible");
+        boolean actResult = searchPage.validateListingPage();
+        Assert.assertTrue(actResult, "Failed to redirect to property listing page.");
     }
+    
 }
