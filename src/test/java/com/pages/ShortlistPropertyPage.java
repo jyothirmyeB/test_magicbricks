@@ -12,12 +12,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.objectrepository.Locators;
 import com.setup.BaseSteps;
 import com.setup.Reporter;
 
 public class ShortlistPropertyPage {
-
+	 public static By sortBy = By.xpath("//*[@id=\"body\"]/div[5]/div/div/div[1]/div[1]/div[1]");
+     public static By hightolow = By.xpath("//*[@id=\"body\"]/div[5]/div/div/div[1]/div[1]/div/div[2]/ul/li[3]");
+     public static By shortlistButton = By.xpath("//*[@id=\"cardid67922533\"]/div/div[1]/div[2]/span[2]");
+     public static By mainshortlistbtn = By.xpath("//*[@id=\"propertysrp\"]/div[1]/div/div/div[2]/div[5]/span");
+     public static By viewShortlistBtn = By.xpath("//*[@id=\"propertysrp\"]/div[1]/div/div/div[2]/div[5]/div/div/a");
+     public static By shortlistTabHeader = By.xpath("//*[@id=\"m-tab-Shortlisted\"]");
     private WebDriver driver;
     private WebDriverWait wait;
     private ExtentTest extTest;
@@ -35,8 +39,8 @@ public class ShortlistPropertyPage {
      */
     public boolean viewShortlistedProperties() {
         try {
-            WebElement viewShortlistBtn = wait.until(ExpectedConditions.elementToBeClickable(Locators.viewShortlistBtn));
-            viewShortlistBtn.click();
+            WebElement viewshortlistbtn = wait.until(ExpectedConditions.elementToBeClickable(viewShortlistBtn));
+            viewshortlistbtn.click();
             
             
           
@@ -58,7 +62,7 @@ public class ShortlistPropertyPage {
             
             
             // Validate the presence of the new tab's header using the specific locator
-            WebElement shortlistedTabHeader = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.shortlistTabHeader));
+            WebElement shortlistedTabHeader = wait.until(ExpectedConditions.visibilityOfElementLocated(shortlistTabHeader));
             if (shortlistedTabHeader.isDisplayed()) {
                 Reporter.generateReport(driver, extTest, Status.PASS, "Successfully navigated to the shortlisted properties");
                 return true;
@@ -105,9 +109,9 @@ public class ShortlistPropertyPage {
     public boolean sortByFilter() {
     	try {
     		BaseSteps.sleep();
-    		WebElement shortlistBtn1 = wait.until(ExpectedConditions.elementToBeClickable(Locators.sortBy));
+    		WebElement shortlistBtn1 = wait.until(ExpectedConditions.elementToBeClickable(sortBy));
     	    shortlistBtn1.click();
-    	    WebElement shortlistBtn2 = wait.until(ExpectedConditions.elementToBeClickable(Locators.hightolow));
+    	    WebElement shortlistBtn2 = wait.until(ExpectedConditions.elementToBeClickable(hightolow));
     	    shortlistBtn2.click();
     	    Reporter.generateReport(driver, extTest, Status.PASS, "Sortby most recent filter clicked");
             return true;
@@ -120,9 +124,9 @@ public class ShortlistPropertyPage {
     public boolean shortlistPropertyFromList() {
         try {
         	   
-          	WebElement shortlistBtn3=wait.until(ExpectedConditions.elementToBeClickable(Locators.shortlistButton));
+          	WebElement shortlistBtn3=wait.until(ExpectedConditions.elementToBeClickable(shortlistButton));
           	shortlistBtn3.click();
-            WebElement shortlistBtn = wait.until(ExpectedConditions.elementToBeClickable(Locators.mainshortlistbtn));
+            WebElement shortlistBtn = wait.until(ExpectedConditions.elementToBeClickable(mainshortlistbtn));
             shortlistBtn.click();
             
             Reporter.generateReport(driver, extTest, Status.PASS, "Successfully clicked the main shortlist button.");

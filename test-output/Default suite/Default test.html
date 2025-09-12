@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>3/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>14/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Sep 11 22:53:20 IST 2025</td>
+<td>Started on:</td><td>Fri Sep 12 21:20:56 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>31 seconds (31255 ms)</td>
+<tr><td>Total time:</td><td>201 seconds (201680 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,33 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search and validate property listings by location", "Magicbricks Property Search"</td>
+<td><div><pre>java.lang.AssertionError: Failed to redirect to property listing page. expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.stepdefinition.SearchHomeSteps.the_user_should_be_redirected_to_the_property_listing_page(SearchHomeSteps.java:63)
+	at ✽.the user should be redirected to the property listing page(file:///C:/Users/Jyothirmye/eclipse-workspace/Test_Magicbricks/src/test/resources/features/searchhome.feature:9)
+</pre></div><a href='#' onClick='toggleBox("stack-trace73254846", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace73254846'><pre>java.lang.AssertionError: Failed to redirect to property listing page. expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.stepdefinition.SearchHomeSteps.the_user_should_be_redirected_to_the_property_listing_page(SearchHomeSteps.java:63)
+	at ✽.the user should be redirected to the property listing page(file:///C:/Users/Jyothirmye/eclipse-workspace/Test_Magicbricks/src/test/resources/features/searchhome.feature:9)
+</pre></div></td>
+<td>8</td>
+<td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -76,19 +103,74 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Empty locations for both comparison fields", "Invalid Location Comparison"</td>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Valid user login successfully", "Login successful"</td>
 <td></td>
-<td>6</td>
-<td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Invalid location for one field, empty for the other", "Invalid Location Comparison"</td>
-<td></td>
-<td>9</td>
+<td>62</td>
 <td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
 <tr>
 <td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Invalid location for both comparison fields", "Invalid Location Comparison"</td>
 <td></td>
-<td>9</td>
+<td>7</td>
+<td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Login with missing captcha", "Invalid Login Scenarios"</td>
+<td></td>
+<td>12</td>
+<td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Compare Ambattur Chennai with Tambaram Chennai", "Compare Two Propertiesto make Decisions"</td>
+<td></td>
+<td>11</td>
+<td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "No location entered", "Search Home Invalid Scenarios"</td>
+<td></td>
+<td>10</td>
+<td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Login with invalid mobile number", "Invalid Login Scenarios"</td>
+<td></td>
+<td>11</td>
+<td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Login without entering any credentials", "Invalid Login Scenarios"</td>
+<td></td>
+<td>11</td>
+<td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Invalid location entered", "Search Home Invalid Scenarios"</td>
+<td></td>
+<td>12</td>
+<td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search for a property with no location", "Invalid Location Search"</td>
+<td></td>
+<td>8</td>
+<td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Empty locations for both comparison fields", "Invalid Location Comparison"</td>
+<td></td>
+<td>11</td>
+<td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search for a property with an invalid location", "Invalid Location Search"</td>
+<td></td>
+<td>7</td>
+<td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Invalid location for one field, empty for the other", "Invalid Location Comparison"</td>
+<td></td>
+<td>8</td>
+<td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Explore tips and growth for a specific location", "Tips and Growth to make informed decisions"</td>
+<td></td>
+<td>4</td>
+<td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify shortlisting a property from the listing results", "Shortlist property from listing page"</td>
+<td></td>
+<td>8</td>
 <td>com.runner.TestRunnerTestNG@7530ad9c</td></tr>
 </table><p>
 </body>

@@ -12,10 +12,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.objectrepository.Locators;
 import com.setup.Reporter;
 
 public class ComparePropertiesPage {
+	
+	// for compare on tips and guides
+	public static final By tipsAndGrowthPageRating = By.xpath("//*[@id=\"idOverview\"]/div[1]/div[2]/span");
+    public static final By buyButton = By.xpath("//*[@id=\"buyheading\"]");
+    public static final By tipsAndGrowthTabNew = By.xpath("//*[@id=\"header-buy-drop\"]/div/div/div/div[5]/ul/li[4]/a");
+    public static final By compareTab = By.xpath("//*[@id=\"navigation\"]/div/ul/li[2]/a");
+    public static final By firstLocationInput = By.xpath("//*[@id=\"locOne\"]");
+    public static final By secondLocationInput = By.xpath("//*[@id=\"locTwo\"]");
+    public static final By compareButtonNew = By.xpath("//*[@id=\"localities\"]/div/div[4]/input");
+    public static final By ratingOne = By.xpath("//*[@id=\"rating_1_0\"]/div[1]/div/div[1]/span[1]");
+    public static final By ratingTwo = By.xpath("//*[@id=\"rating_2_0\"]/div[1]/div/div[1]/span[1]");
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -33,7 +43,7 @@ public class ComparePropertiesPage {
      */
     public boolean validateOnExploredLocalityPage() {
         try {
-            WebElement sortBy = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.tipsAndGrowthPageRating));
+            WebElement sortBy = wait.until(ExpectedConditions.visibilityOfElementLocated(tipsAndGrowthPageRating));
             if (sortBy.isDisplayed()) {
                 Reporter.generateReport(driver, extTest, Status.PASS, "Successfully validated the user is on the explored locality page.");
                 return true;
@@ -54,7 +64,7 @@ public class ComparePropertiesPage {
      */
     public boolean clickBuyOption() {
         try {
-            WebElement buyOption = wait.until(ExpectedConditions.elementToBeClickable(Locators.buyButton));
+            WebElement buyOption = wait.until(ExpectedConditions.elementToBeClickable(buyButton));
             buyOption.click();
             Reporter.generateReport(driver, extTest, Status.PASS, "Clicked on the Buy option.");
             return true;
@@ -70,7 +80,7 @@ public class ComparePropertiesPage {
      */
     public boolean selectTipsAndGrowthTab() {
         try {
-            WebElement tipsAndGrowthTab = wait.until(ExpectedConditions.elementToBeClickable(Locators.tipsAndGrowthTabNew));
+            WebElement tipsAndGrowthTab = wait.until(ExpectedConditions.elementToBeClickable(tipsAndGrowthTabNew));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", tipsAndGrowthTab);
 
             // Switch to the new tab
@@ -96,8 +106,8 @@ public class ComparePropertiesPage {
      */
     public boolean clickCompareTab() {
         try {
-            WebElement compareTab = wait.until(ExpectedConditions.elementToBeClickable(Locators.compareTab));
-            compareTab.click();
+            WebElement comparetab = wait.until(ExpectedConditions.elementToBeClickable(compareTab));
+            comparetab.click();
             Reporter.generateReport(driver, extTest, Status.PASS, "Clicked on the Compare tab.");
             return true;
         } catch (Exception e) {
@@ -113,8 +123,8 @@ public class ComparePropertiesPage {
      */
     public boolean enterFirstLocationForComparison(String location) {
         try {
-            WebElement firstLocationInput = wait.until(ExpectedConditions.elementToBeClickable(Locators.firstLocationInput));
-            firstLocationInput.sendKeys(location);
+            WebElement firstlocationInput = wait.until(ExpectedConditions.elementToBeClickable(firstLocationInput));
+            firstlocationInput.sendKeys(location);
             Reporter.generateReport(driver, extTest, Status.PASS, "Entered first location '" + location + "' for comparison.");
             return true;
         } catch (Exception e) {
@@ -130,8 +140,8 @@ public class ComparePropertiesPage {
      */
     public boolean enterSecondLocationForComparison(String secondLocation) {
         try {
-            WebElement secondLocationInput = wait.until(ExpectedConditions.elementToBeClickable(Locators.secondLocationInput));
-            secondLocationInput.sendKeys(secondLocation);
+            WebElement secondlocationInput = wait.until(ExpectedConditions.elementToBeClickable(secondLocationInput));
+            secondlocationInput.sendKeys(secondLocation);
             Reporter.generateReport(driver, extTest, Status.PASS, "Entered second location '" + secondLocation + "' for comparison.");
             return true;
         } catch (Exception e) {
@@ -146,7 +156,7 @@ public class ComparePropertiesPage {
      */
     public boolean clickFinalCompareButton() {
         try {
-            WebElement finalCompareButton = wait.until(ExpectedConditions.elementToBeClickable(Locators.compareButtonNew));
+            WebElement finalCompareButton = wait.until(ExpectedConditions.elementToBeClickable(compareButtonNew));
             finalCompareButton.click();
 
             // Switch to the new tab
@@ -172,8 +182,8 @@ public class ComparePropertiesPage {
      */
     public boolean validateComparisonPage() {
         try {
-            WebElement firstLocationRating = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.ratingOne));
-            WebElement secondLocationRating = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.ratingTwo));
+            WebElement firstLocationRating = wait.until(ExpectedConditions.visibilityOfElementLocated(ratingOne));
+            WebElement secondLocationRating = wait.until(ExpectedConditions.visibilityOfElementLocated(ratingTwo));
 
             if (firstLocationRating.isDisplayed() && secondLocationRating.isDisplayed()) {
                 Reporter.generateReport(driver, extTest, Status.PASS, "Successfully validated both location ratings on the comparison page.");

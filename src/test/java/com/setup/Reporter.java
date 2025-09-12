@@ -1,7 +1,6 @@
 package com.setup;
 
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

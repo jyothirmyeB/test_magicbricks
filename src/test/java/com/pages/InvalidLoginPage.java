@@ -14,12 +14,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.objectrepository.Locators;
 import com.setup.BaseSteps;
 import com.setup.Reporter;
 
 public class InvalidLoginPage {
-
+	public static By phonenumber = By.xpath("//*[@id=\"emailOrMobile\"]");
+	public static By homeLoginBtn = By.xpath("//*[@id=\"commercialIndex\"]/header/section[1]/div/div[2]/div[2]/a");
+	public static By innerLoginBtn = By.xpath("//*[@id=\"commercialIndex\"]/header/section[1]/div/div[2]/div[2]/div/div[2]/a");
+	public static By nextbtn = By.id("btnStep1");
+	public static By captacha = By.xpath("//*[@id=\"captchaCodeSignIn\"]");
+	
     private WebDriver driver;
     private WebDriverWait wait;
     private ExtentTest extTest;
@@ -33,7 +37,7 @@ public class InvalidLoginPage {
     // ---------------- Invalid Login Methods ---------------- //
     public boolean clickPhoneNumber1() {
         try {
-            WebElement phoneInput = wait.until(ExpectedConditions.elementToBeClickable(Locators.phonenumber));
+            WebElement phoneInput = wait.until(ExpectedConditions.elementToBeClickable(phonenumber));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", phoneInput);
 
             Reporter.generateReport(driver, extTest, Status.PASS, "Clicked on phone number input field");
@@ -60,7 +64,7 @@ public class InvalidLoginPage {
     
     public boolean clickLoginBtn1() {
         try {
-            WebElement loginBtn = wait.until(ExpectedConditions.elementToBeClickable(Locators.homeLoginBtn));
+            WebElement loginBtn = wait.until(ExpectedConditions.elementToBeClickable(homeLoginBtn));
 
             // Scroll into view & click via JS (if normal click fails)
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", loginBtn);
@@ -77,7 +81,7 @@ public class InvalidLoginPage {
 
     public boolean clickInnerLoginBtn1() {
         try {
-            WebElement innerLogin = wait.until(ExpectedConditions.elementToBeClickable(Locators.innerLoginBtn));
+            WebElement innerLogin = wait.until(ExpectedConditions.elementToBeClickable(innerLoginBtn));
             innerLogin.click();
             BaseSteps.sleep();
 
@@ -93,11 +97,11 @@ public class InvalidLoginPage {
  // Enter invalid mobile dynamically
     public boolean enterInvalidMobile(String phone, String captcha) {
         try {
-            WebElement phoneInput = wait.until(ExpectedConditions.elementToBeClickable(Locators.phonenumber));
+            WebElement phoneInput = wait.until(ExpectedConditions.elementToBeClickable(phonenumber));
             phoneInput.clear();
             phoneInput.sendKeys(phone);  
-            driver.findElement(Locators.captacha).sendKeys(captcha); 
-            driver.findElement(Locators.nextbtn).click();
+            driver.findElement(captacha).sendKeys(captcha); 
+            driver.findElement(nextbtn).click();
 
             Reporter.generateReport(driver, extTest, Status.PASS, "Entered invalid mobile: " + phone);
             return true;
@@ -110,10 +114,10 @@ public class InvalidLoginPage {
     // Enter mobile without captcha dynamically
     public boolean enterMobileWithoutCaptcha(String phone) {
         try {
-            WebElement phoneInput = wait.until(ExpectedConditions.elementToBeClickable(Locators.phonenumber));
+            WebElement phoneInput = wait.until(ExpectedConditions.elementToBeClickable(phonenumber));
             phoneInput.clear();
             phoneInput.sendKeys(phone);
-            driver.findElement(Locators.nextbtn).click();
+            driver.findElement(nextbtn).click();
 
             Reporter.generateReport(driver, extTest, Status.PASS, "Tried login without captcha using: " + phone);
             return true;
@@ -130,7 +134,7 @@ public class InvalidLoginPage {
 
     public boolean clickNextWithoutDetails() {
         try {
-            driver.findElement(Locators.nextbtn).click();
+            driver.findElement(nextbtn).click();
             Reporter.generateReport(driver, extTest, Status.PASS, "Clicked Next without entering details");
             return true;
         } catch (Exception e) {

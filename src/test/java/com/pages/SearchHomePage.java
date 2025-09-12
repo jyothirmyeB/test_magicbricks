@@ -1,25 +1,35 @@
 package com.pages;
 
 import java.time.Duration;
-import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.objectrepository.Locators;
-import com.setup.BaseSteps;
 import com.setup.Reporter;
 
 
 public class SearchHomePage {
-
+	public static By enterlocation = By.xpath("//*[@id=\"keyword\"]");
+	public static By crossloc =By.xpath("//*[@id=\"keyword_autoSuggestSelectedDiv\"]/div/div[2]");
+	public static By selectdropdownloc =By.xpath("//*[@id=\"serachSuggest\"]/div[2]/span");
+	public static By clickPropertType = By.id("propType_buy");
+	public static By clearPropertyType = By.xpath("//*[@id=\"propType_buy\"]/div[2]/div/div/div[1]/div[2]/div[4]");
+    public static By dropdownProperType = By.xpath("//*[@id=\"propType_buy\"]/div[1]");
+    public static By selectPropertyType = By.id("10002_10003_10021_10022");
+    public static By closePropertyType = By.xpath("//*[@id=\"buy_proertyTypeDefault\"]");
+    // for budget
+    public static By clickBudget = By.id("rent_budget_lbl");
+    public static By minPrice = By.xpath("//*[@id=\"budgetMin\"]");
+    public static By maxPrice = By.xpath("//*[@id=\"budgetMax\"]");
+    public static By closeBudget = By.xpath("//*[@id=\"rent_budget_lbl\"]"); 
+    public static By searchButton = By.xpath("//*[@id=\"searchFormHolderSection\"]/section/div/div[1]/div[3]/div[4]");
+    public static By sortBy = By.xpath("//*[@id=\"body\"]/div[5]/div/div/div[1]/div[1]/div[1]");
+	
     private WebDriver driver;
     private WebDriverWait wait;
     private ExtentTest extTest;
@@ -40,13 +50,13 @@ public class SearchHomePage {
         try {
     		  
     		  WebElement locationBox =
-    		  wait.until(ExpectedConditions.elementToBeClickable(Locators.enterlocation));
+    		  wait.until(ExpectedConditions.elementToBeClickable(enterlocation));
     		  ((JavascriptExecutor) driver).executeScript("arguments[0].click();", locationBox); 
-    		  WebElement locationBox1 =wait.until(ExpectedConditions.elementToBeClickable(Locators.crossloc));
+    		  WebElement locationBox1 =wait.until(ExpectedConditions.elementToBeClickable(crossloc));
     		  ((JavascriptExecutor) driver).executeScript("arguments[0].click();",locationBox1); 
     		  locationBox.clear(); 
     		  locationBox.sendKeys(location);
-    		   WebElement locationBox2 =wait.until(ExpectedConditions.elementToBeClickable(Locators.selectdropdownloc));
+    		   WebElement locationBox2 =wait.until(ExpectedConditions.elementToBeClickable(selectdropdownloc));
     		   ((JavascriptExecutor) driver).executeScript("arguments[0].click();",locationBox2); 
 
 
@@ -64,13 +74,13 @@ public class SearchHomePage {
     // Select property type
     public boolean selectPropertyType() {
 		try {
-			WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(Locators.clickPropertType));
+			WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(clickPropertType));
 			dropdown.click();
 
 		
-			WebElement option = wait.until(ExpectedConditions.elementToBeClickable(Locators.selectPropertyType));
+			WebElement option = wait.until(ExpectedConditions.elementToBeClickable(selectPropertyType));
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", option);
-			WebElement close = wait.until(ExpectedConditions.elementToBeClickable(Locators.closePropertyType));
+			WebElement close = wait.until(ExpectedConditions.elementToBeClickable(closePropertyType));
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", close);
 			// close.click();
 
@@ -87,21 +97,21 @@ public class SearchHomePage {
     public boolean selectBudget() {
         try {
             // Expand dropdown section if needed
-            WebElement dropdownSection = wait.until(ExpectedConditions.elementToBeClickable(Locators.clickBudget));
+            WebElement dropdownSection = wait.until(ExpectedConditions.elementToBeClickable(clickBudget));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", dropdownSection);
             
             //Min dropdown
-            WebElement minOption = wait.until(ExpectedConditions.elementToBeClickable(Locators.minPrice));
+            WebElement minOption = wait.until(ExpectedConditions.elementToBeClickable(minPrice));
             //minOption.clear();              
             minOption.sendKeys("500000");
             minOption.click();
 
             //Min dropdown
-            WebElement maxOption = wait.until(ExpectedConditions.elementToBeClickable(Locators.maxPrice));
+            WebElement maxOption = wait.until(ExpectedConditions.elementToBeClickable(maxPrice));
             //maxOption.clear();              
             maxOption.sendKeys("15000000");
             maxOption.click();
-            WebElement closeOption = wait.until(ExpectedConditions.elementToBeClickable(Locators.closeBudget));
+            WebElement closeOption = wait.until(ExpectedConditions.elementToBeClickable(closeBudget));
             closeOption.click();
 
             Reporter.generateReport(driver, extTest, Status.PASS,
@@ -118,7 +128,7 @@ public class SearchHomePage {
     // Click search
     public boolean clickSearch() {
         try {
-            WebElement searchBtn = wait.until(ExpectedConditions.elementToBeClickable(Locators.searchButton));
+            WebElement searchBtn = wait.until(ExpectedConditions.elementToBeClickable(searchButton));
             searchBtn.click();
             Reporter.generateReport(driver, extTest, Status.PASS, "Clicked on Search button");
             return true;
@@ -131,8 +141,8 @@ public class SearchHomePage {
     // Validate listing page
     public boolean validateListingPage() {
         try {
-            WebElement sortBy = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.sortBy));
-            if (sortBy.isDisplayed()) {
+            WebElement sortby = wait.until(ExpectedConditions.visibilityOfElementLocated(sortBy));
+            if (sortby.isDisplayed()) {
                 Reporter.generateReport(driver, extTest, Status.PASS, "Listing page validated by Sort By dropdown");
                 return true;
             } else {
@@ -160,21 +170,6 @@ public class SearchHomePage {
             return false;
         }
     } */
-    public boolean validateStayOnHome() {
-        try {
-            WebElement buyHeading = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='buyheading']"))
-            );
-            if (buyHeading.isDisplayed()) {
-                Reporter.generateReport(driver, extTest, Status.PASS, "User remained on home page.");
-                return true;
-            }
-            return false;
-        } catch (Exception e) {
-            Reporter.generateReport(driver, extTest, Status.FAIL, "User did not remain on home page: " + e.getMessage());
-            return false;
-        }
-    }
-
+    
     
 }

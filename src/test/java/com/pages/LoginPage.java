@@ -14,12 +14,24 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.objectrepository.Locators;
 import com.setup.BaseSteps;
 import com.setup.Reporter;
 
 
 public class LoginPage extends BaseSteps {
+	
+	 //for login button
+	 public static By homeLoginBtn = By.xpath("//*[@id=\"commercialIndex\"]/header/section[1]/div/div[2]/div[2]/a");
+	 public static By innerLoginBtn = By.xpath("//*[@id=\"commercialIndex\"]/header/section[1]/div/div[2]/div[2]/div/div[2]/a");
+	 public static By phonenumber = By.xpath("//*[@id=\"emailOrMobile\"]");
+	 public static By nextbtn = By.id("btnStep1");
+	 public static By captacha = By.xpath("//*[@id=\"captchaCodeSignIn\"]");
+	 public static By otp1 = By.id("verify01");
+	 public static By otp2 = By.id("verify02");
+	 public static By otp3 = By.id("verify03");
+	 public static By otp4 = By.id("verify04");
+     public static By continuebtn = By.xpath("//*[@id=\"verifyOtpDiv\"]/div[2]/div[3]/button");
+     public static By closepopup = By.xpath("//*[@id=\"userOnboardingWidget\"]/div/div[1]");
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -33,7 +45,7 @@ public class LoginPage extends BaseSteps {
 
     public boolean clickLoginBtn() {
         try {
-            WebElement loginBtn = wait.until(ExpectedConditions.elementToBeClickable(Locators.homeLoginBtn));
+            WebElement loginBtn = wait.until(ExpectedConditions.elementToBeClickable(homeLoginBtn));
             loginBtn.click();
             BaseSteps.sleep();
 
@@ -47,7 +59,7 @@ public class LoginPage extends BaseSteps {
 
     public boolean clickInnerLoginBtn() {
         try {
-            WebElement innerLogin = wait.until(ExpectedConditions.elementToBeClickable(Locators.innerLoginBtn));
+            WebElement innerLogin = wait.until(ExpectedConditions.elementToBeClickable(innerLoginBtn));
             innerLogin.click();
             BaseSteps.sleep();
 
@@ -74,7 +86,7 @@ public class LoginPage extends BaseSteps {
 
     public boolean clickPhoneNumber() {
         try {
-            WebElement phoneInput = wait.until(ExpectedConditions.elementToBeClickable(Locators.phonenumber));
+            WebElement phoneInput = wait.until(ExpectedConditions.elementToBeClickable(phonenumber));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", phoneInput);
 
             Scanner sc = new Scanner(System.in);
@@ -84,9 +96,9 @@ public class LoginPage extends BaseSteps {
             String captcha = sc.nextLine();
 
             phoneInput.sendKeys(mobile);
-            driver.findElement(Locators.captacha).sendKeys(captcha);
+            driver.findElement(captacha).sendKeys(captcha);
             BaseSteps.sleep();
-            driver.findElement(Locators.nextbtn).click();
+            driver.findElement(nextbtn).click();
 
             Reporter.generateReport(driver, extTest, Status.PASS, "Entered mobile number & captcha successfully");
             return true;
@@ -101,13 +113,13 @@ public class LoginPage extends BaseSteps {
             System.out.print("Enter OTP: ");
             String otp = scanner.nextLine();
 
-            wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.otp1)).sendKeys(otp.substring(0, 1));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.otp2)).sendKeys(otp.substring(1, 2));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.otp3)).sendKeys(otp.substring(2, 3));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.otp4)).sendKeys(otp.substring(3, 4));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(otp1)).sendKeys(otp.substring(0, 1));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(otp2)).sendKeys(otp.substring(1, 2));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(otp3)).sendKeys(otp.substring(2, 3));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(otp4)).sendKeys(otp.substring(3, 4));
 
-            wait.until(ExpectedConditions.elementToBeClickable(Locators.continuebtn)).click();
-            wait.until(ExpectedConditions.elementToBeClickable(Locators.closepopup)).click();
+            wait.until(ExpectedConditions.elementToBeClickable(continuebtn)).click();
+            wait.until(ExpectedConditions.elementToBeClickable(closepopup)).click();
 
             Reporter.generateReport(driver, extTest, Status.PASS, "Entered OTP successfully and logged in");
             return true;

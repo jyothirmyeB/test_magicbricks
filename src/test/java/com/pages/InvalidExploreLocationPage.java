@@ -3,16 +3,23 @@ package com.pages;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.Set;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.objectrepository.Locators;
 import com.setup.Reporter;
 
 public class InvalidExploreLocationPage {
+	// New locator for invalid location error message
+	public static final By buyButton = By.xpath("//*[@id=\"buyheading\"]");
+	public static By errormessage = By.xpath("//*[@id=\"locExploreEmpty\"]");
+    public static final By tipsAndGrowthButton = By.linkText("Tips and Guides");
+    public static final By exploreLocationBox = By.xpath("//*[@id=\"locExplore\"]");
+    public static final By exploreButton = By.xpath("//*[@id=\"exploreSection\"]/div/div[2]/div[2]/div[2]/input");
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -27,8 +34,8 @@ public class InvalidExploreLocationPage {
     // This method only clicks the Buy button. It does NOT handle tab switching.
     public boolean clickBuyButton() {
         try {
-            WebElement buyButton = wait.until(ExpectedConditions.elementToBeClickable(Locators.buyButton));
-            buyButton.click();
+            WebElement buybutton = wait.until(ExpectedConditions.elementToBeClickable(buyButton));
+            buybutton.click();
             Reporter.generateReport(driver, extTest, Status.PASS, "Successfully clicked the 'Buy' button.");
             return true;
         } catch (Exception e) {
@@ -40,8 +47,8 @@ public class InvalidExploreLocationPage {
     // This method clicks the Tips and Growth button and handles the tab switch.
     public boolean clickTipsAndGrowthAndSwitchToNewTab() {
         try {
-            WebElement tipsAndGrowthButton = wait.until(ExpectedConditions.elementToBeClickable(Locators.tipsAndGrowthButton));
-            tipsAndGrowthButton.click();
+            WebElement tipsAndgrowthButton = wait.until(ExpectedConditions.elementToBeClickable(tipsAndGrowthButton));
+            tipsAndgrowthButton.click();
 
             wait.until(ExpectedConditions.numberOfWindowsToBe(2));
 
@@ -66,7 +73,7 @@ public class InvalidExploreLocationPage {
 
     public boolean enterLocation(String location) {
         try {
-            WebElement locationInput = wait.until(ExpectedConditions.elementToBeClickable(Locators.exploreLocationBox));
+            WebElement locationInput = wait.until(ExpectedConditions.elementToBeClickable(exploreLocationBox));
             locationInput.clear();
             locationInput.sendKeys(location);
             Reporter.generateReport(driver, extTest, Status.PASS, "Entered location: " + location);
@@ -79,8 +86,8 @@ public class InvalidExploreLocationPage {
 
     public boolean clickExploreButton() {
         try {
-            WebElement exploreButton = wait.until(ExpectedConditions.elementToBeClickable(Locators.exploreButton));
-            exploreButton.click();
+            WebElement explorebutton = wait.until(ExpectedConditions.elementToBeClickable(exploreButton));
+            explorebutton.click();
             Reporter.generateReport(driver, extTest, Status.PASS, "Clicked 'Explore' button.");
             return true;
         } catch (Exception e) {
@@ -91,7 +98,7 @@ public class InvalidExploreLocationPage {
 
     public boolean validateErrorMessage() {
         try {
-            WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.errormessage));
+            WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(errormessage));
             boolean isDisplayed = errorMessage.isDisplayed();
             if (isDisplayed) {
                 Reporter.generateReport(driver, extTest, Status.PASS, "Error message is displayed as expected.");
