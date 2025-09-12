@@ -1,7 +1,7 @@
 MagicBricks Automation Testing Framework Using Java Selenium
 
 This Project automates functional testing of the MagicBricks Website using Java, Selenium WebDriver, Cucumber (BDD), and TestNG.  
-It demonstrates the behavior-driven development (BDD) testing with reporting and browser support.
+It demonstrates the behavior-driven development (BDD) testing with reporting.
 
 Tech Stack
 
