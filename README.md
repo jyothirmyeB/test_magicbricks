@@ -5,10 +5,20 @@ It demonstrates the behavior-driven development (BDD) testing with reporting.
 
 Tech Stack
 
-- Java 11+
-- Maven 3.6
+- Java 21
+- Maven 4.0.0
 - Selenium WebDriver
 - Cucumber (BDD)
 - TestNG
 - Extent Reports
+
+Configuration 
+All Environment related settings are stored in 'src/test/resources/config.properties'
+
+Test Reports 
+
+- Cucumber Report
+- Extent Report
+
+
   
