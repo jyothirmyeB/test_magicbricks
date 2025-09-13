@@ -3,7 +3,7 @@ package com.stepdefinition;
 import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
-import com.pages.SearchHomePage;
+import com.pages.SearchHome_Page;
 import com.parameters.ExcelReader;
 import com.setup.BaseSteps;
 
@@ -13,13 +13,13 @@ import io.cucumber.java.en.When;
 
 public class SearchHomeSteps extends BaseSteps {
 
-    SearchHomePage searchPage;
+    SearchHome_Page searchPage;
     ExtentTest extTest = Hooks.extTest;
     static String[][] excelData;
 
     @Given("the user is on the Magicbricks home page")
     public void the_user_is_on_the_magicbricks_home_page() {
-        searchPage = new SearchHomePage(driver, extTest);
+        searchPage = new SearchHome_Page(driver, extTest);
         String actUrl = driver.getCurrentUrl();
         Assert.assertTrue(actUrl.contains("magicbricks.com"),
                 "User is not on the Magicbricks home page. Current URL: " + actUrl);

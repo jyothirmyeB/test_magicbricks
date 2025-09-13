@@ -13,7 +13,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.setup.Reporter;
 
-public class InvalidExploreLocationPage {
+public class InvalidExploreLocation_Page {
 	// New locator for invalid location error message
 	public static final By buyButton = By.xpath("//*[@id=\"buyheading\"]");
 	public static By errormessage = By.xpath("//*[@id=\"locExploreEmpty\"]");
@@ -25,7 +25,7 @@ public class InvalidExploreLocationPage {
     private WebDriverWait wait;
     private ExtentTest extTest;
 
-    public InvalidExploreLocationPage(WebDriver driver, ExtentTest extTest) {
+    public InvalidExploreLocation_Page(WebDriver driver, ExtentTest extTest) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         this.extTest = extTest;

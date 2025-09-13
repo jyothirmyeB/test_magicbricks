@@ -13,7 +13,7 @@ import com.aventstack.extentreports.Status;
 import com.setup.Reporter;
 
 
-public class InvalidLocationPage {
+public class InvalidLocation_Page {
 	 public static By enterlocation = By.xpath("//*[@id=\"keyword\"]");
 	 public static By crossloc =By.xpath("//*[@id=\"keyword_autoSuggestSelectedDiv\"]/div/div[2]");
 	 public static By searchButton = By.xpath("//*[@id=\"searchFormHolderSection\"]/section/div/div[1]/div[3]/div[4]");
@@ -23,7 +23,7 @@ public class InvalidLocationPage {
     private WebDriverWait wait;
     private ExtentTest extTest;
 
-    public InvalidLocationPage(WebDriver driver, ExtentTest extTest) {
+    public InvalidLocation_Page(WebDriver driver, ExtentTest extTest) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         this.extTest = extTest;

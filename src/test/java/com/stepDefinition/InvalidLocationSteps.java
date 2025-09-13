@@ -3,7 +3,7 @@ package com.stepdefinition;
 import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
-import com.pages.InvalidLocationPage;
+import com.pages.InvalidLocation_Page;
 import com.setup.BaseSteps;
 
 import io.cucumber.java.After;
@@ -14,7 +14,7 @@ import io.cucumber.java.en.When;
 
 public class InvalidLocationSteps extends BaseSteps {
 
-    InvalidLocationPage searchPage;
+    InvalidLocation_Page searchPage;
     ExtentTest extTest = Hooks.extTest;
     @Before("@invalidsearch")
     public void startBrowser() {
@@ -34,7 +34,7 @@ public class InvalidLocationSteps extends BaseSteps {
     
     @Given("I am on the Magicbricks home page")
     public void I_am_on_the_magicbricks_home_page() {
-        searchPage = new InvalidLocationPage(driver, extTest);
+        searchPage = new InvalidLocation_Page(driver, extTest);
         String actUrl = driver.getCurrentUrl();
         Assert.assertTrue(actUrl.contains("magicbricks.com"),
                 "User is not on the Magicbricks home page. Current URL: " + actUrl);

@@ -13,7 +13,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.setup.Reporter;
 
-public class InvalidComparisonPage {
+public class InvalidComparison_Page {
 	//locators for invalid compare locality
     public static By errormessage1 = By.xpath("//*[@id=\"locOneValid\"]");
     public static By errormessage2 = By.xpath("//*[@id=\"locTwoValid\"]");
@@ -30,7 +30,7 @@ public class InvalidComparisonPage {
     private WebDriverWait wait;
     private ExtentTest extTest;
 
-    public InvalidComparisonPage(WebDriver driver, ExtentTest extTest) {
+    public InvalidComparison_Page(WebDriver driver, ExtentTest extTest) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         this.extTest = extTest;

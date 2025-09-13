@@ -3,36 +3,35 @@ package com.stepdefinition;
 import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
-import com.pages.ShortlistPropertyPage;
+import com.pages.ShortlistProperty_Page;
 import com.setup.BaseSteps;
 
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ShortlistPropertySteps extends BaseSteps {
-	ShortlistPropertyPage shortlistPage;
+	ShortlistProperty_Page shortlistPage;
 	ExtentTest extTest = Hooks.extTest;
 	@Given("the user is on the property listing page")
 	public void the_user_is_on_the_property_listing_page() {
 	    
 	}
-	@Given("clicks on sortby and selects most recent filter")
-	public void clicks_on_sortby_and_selects_most_recent_filter() {
-		shortlistPage = new ShortlistPropertyPage(driver, Hooks.extTest);
+	@Given("clicks on sortby and selects high to low filter")
+	public void clicks_on_sortby_and_selects_high_to_low_filter() {
+		shortlistPage = new ShortlistProperty_Page(driver, Hooks.extTest);
 		boolean actResult = shortlistPage.sortByFilter();
 		Assert.assertTrue(actResult, "Failed to select sortby mostrecent filter.");
 	}
 	@When("I shortlist the first property from the listing")
 	public void i_shortlist_the_first_property_from_the_listing() {
-		shortlistPage = new ShortlistPropertyPage(driver, Hooks.extTest);
+		shortlistPage = new ShortlistProperty_Page(driver, Hooks.extTest);
         boolean actResult = shortlistPage.shortlistPropertyFromList();
         Assert.assertTrue(actResult, "Failed to shortlist the first property from the listing.");
 	   
 	}
 	@When("I view the shortlisted properties")
 	public void i_view_the_shortlisted_properties() {
-		shortlistPage = new ShortlistPropertyPage(driver, Hooks.extTest);
+		shortlistPage = new ShortlistProperty_Page(driver, Hooks.extTest);
         boolean actResult = shortlistPage.viewShortlistedProperties();
         Assert.assertTrue(actResult, "Failed to view shortlisted properties.");
         

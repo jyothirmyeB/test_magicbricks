@@ -17,7 +17,7 @@ import com.aventstack.extentreports.Status;
 import com.setup.BaseSteps;
 import com.setup.Reporter;
 
-public class InvalidLoginPage {
+public class InvalidLogin_Page {
 	public static By phonenumber = By.xpath("//*[@id=\"emailOrMobile\"]");
 	public static By homeLoginBtn = By.xpath("//*[@id=\"commercialIndex\"]/header/section[1]/div/div[2]/div[2]/a");
 	public static By innerLoginBtn = By.xpath("//*[@id=\"commercialIndex\"]/header/section[1]/div/div[2]/div[2]/div/div[2]/a");
@@ -28,7 +28,7 @@ public class InvalidLoginPage {
     private WebDriverWait wait;
     private ExtentTest extTest;
 
-    public InvalidLoginPage(WebDriver driver, ExtentTest extTest) {
+    public InvalidLogin_Page(WebDriver driver, ExtentTest extTest) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         this.extTest = extTest;

@@ -13,7 +13,7 @@ import com.aventstack.extentreports.Status;
 import com.setup.Reporter;
 
 
-public class SearchHomePage {
+public class SearchHome_Page {
 	public static By enterlocation = By.xpath("//*[@id=\"keyword\"]");
 	public static By crossloc =By.xpath("//*[@id=\"keyword_autoSuggestSelectedDiv\"]/div/div[2]");
 	public static By selectdropdownloc =By.xpath("//*[@id=\"serachSuggest\"]/div[2]/span");
@@ -34,7 +34,7 @@ public class SearchHomePage {
     private WebDriverWait wait;
     private ExtentTest extTest;
 
-    public SearchHomePage(WebDriver driver, ExtentTest extTest) {
+    public SearchHome_Page(WebDriver driver, ExtentTest extTest) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         this.extTest = extTest;

@@ -15,7 +15,7 @@ import com.aventstack.extentreports.Status;
 import com.setup.BaseSteps;
 import com.setup.Reporter;
 
-public class ShortlistPropertyPage {
+public class ShortlistProperty_Page {
 	 public static By sortBy = By.xpath("//*[@id=\"body\"]/div[5]/div/div/div[1]/div[1]/div[1]");
      public static By hightolow = By.xpath("//*[@id=\"body\"]/div[5]/div/div/div[1]/div[1]/div/div[2]/ul/li[3]");
      public static By shortlistButton = By.xpath("//*[@id=\"cardid67922533\"]/div/div[1]/div[2]/span[2]");
@@ -26,7 +26,7 @@ public class ShortlistPropertyPage {
     private WebDriverWait wait;
     private ExtentTest extTest;
 
-    public ShortlistPropertyPage(WebDriver driver, ExtentTest extTest) {
+    public ShortlistProperty_Page(WebDriver driver, ExtentTest extTest) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         this.extTest = extTest;

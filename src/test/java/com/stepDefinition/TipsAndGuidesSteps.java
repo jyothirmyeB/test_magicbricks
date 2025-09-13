@@ -3,7 +3,7 @@ package com.stepdefinition;
 import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
-import com.pages.TipsAndGuidesPage;
+import com.pages.TipsAndGuides_Page;
 import com.setup.BaseSteps;
 
 import io.cucumber.java.en.Given;
@@ -12,12 +12,12 @@ import io.cucumber.java.en.When;
 
 public class TipsAndGuidesSteps extends BaseSteps {
 
-    TipsAndGuidesPage tipsAndGrowthPage;
+    TipsAndGuides_Page tipsAndGrowthPage;
     ExtentTest extTest = Hooks.extTest;
 
     @Given("I am on the shortlisted property page")
     public void i_am_on_the_shortlisted_property_page() {
-        tipsAndGrowthPage = new TipsAndGuidesPage(driver, extTest);
+        tipsAndGrowthPage = new TipsAndGuides_Page(driver, extTest);
         boolean actResult = tipsAndGrowthPage.validateShortlistedPage();
         Assert.assertTrue(actResult, "User is not on the shortlisted property page.");
     }

@@ -14,7 +14,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.setup.Reporter;
 
-public class ComparePropertiesPage {
+public class CompareProperties_Page {
 	
 	// for compare on tips and guides
 	public static final By tipsAndGrowthPageRating = By.xpath("//*[@id=\"idOverview\"]/div[1]/div[2]/span");
@@ -31,7 +31,7 @@ public class ComparePropertiesPage {
     private WebDriverWait wait;
     private ExtentTest extTest;
 
-    public ComparePropertiesPage(WebDriver driver, ExtentTest extTest) {
+    public CompareProperties_Page(WebDriver driver, ExtentTest extTest) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         this.extTest = extTest;

@@ -2,6 +2,7 @@ Feature: Compare Two Propertiesto make Decisions
 Background:
      Given I am on the Explored locality page
      When I click the Buy option
+#TS_MB_13     
   Scenario: Compare Ambattur Chennai with Tambaram Chennai
     And I select the Tips and Growth tab
     And I click on the Compare tab

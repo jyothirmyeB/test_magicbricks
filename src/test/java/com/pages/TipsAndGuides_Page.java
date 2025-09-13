@@ -15,7 +15,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.setup.Reporter;
 
-public class TipsAndGuidesPage {
+public class TipsAndGuides_Page {
 	  public static final By buyOption = By.xpath("//*[@id=\"shortlistWeb\"]/div[1]/div/div/div[1]/div[2]/span");
 	     public static final By tipsAndGrowthTab = By.xpath("//*[@id=\"shortlistWeb\"]/div[1]/div/div/div[1]/div[2]/div/div/div[5]/ul/li[4]/a");
 	     public static final By exploreLocationBox = By.xpath("//*[@id=\"locExplore\"]");
@@ -27,7 +27,7 @@ public class TipsAndGuidesPage {
     private WebDriverWait wait;
     private ExtentTest extTest;
 
-    public TipsAndGuidesPage(WebDriver driver, ExtentTest extTest) {
+    public TipsAndGuides_Page(WebDriver driver, ExtentTest extTest) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         this.extTest = extTest;

@@ -3,7 +3,7 @@ package com.stepdefinition;
 import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
-import com.pages.ComparePropertiesPage;
+import com.pages.CompareProperties_Page;
 import com.setup.BaseSteps;
 
 import io.cucumber.java.en.Given;
@@ -12,12 +12,12 @@ import io.cucumber.java.en.When;
 
 public class TipsContinueSteps extends BaseSteps {
 
-    ComparePropertiesPage comparePage;
+    CompareProperties_Page comparePage;
     ExtentTest extTest = Hooks.extTest;
 
     @Given("I am on the Explored locality page")
     public void i_am_on_the_explored_locality_page() {
-        comparePage = new ComparePropertiesPage(driver, extTest);
+        comparePage = new CompareProperties_Page(driver, extTest);
         boolean actResult = comparePage.validateOnExploredLocalityPage();
         Assert.assertTrue(actResult, "The user is not on the explored locality page.");
     }

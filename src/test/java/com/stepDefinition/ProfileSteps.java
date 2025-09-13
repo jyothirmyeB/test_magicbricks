@@ -3,7 +3,7 @@ package com.stepdefinition;
 import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
-import com.pages.LoginPage;
+import com.pages.Login_Page;
 import com.setup.BaseSteps;
 
 import io.cucumber.java.Before;
@@ -13,7 +13,7 @@ import io.cucumber.java.en.When;
 
 public class ProfileSteps extends BaseSteps {
 
-    LoginPage loginPage;
+    Login_Page loginPage;
     ExtentTest extTest = Hooks.extTest; 
     @Before("@Login")
     public void startBrowser() {
@@ -22,7 +22,7 @@ public class ProfileSteps extends BaseSteps {
 
     @Given("I am on the homepage")
     public void i_am_on_the_homepage() {
-        loginPage = new LoginPage(driver, extTest);
+        loginPage = new Login_Page(driver, extTest);
         boolean actResult = loginPage.clickLoginBtn();
         Assert.assertTrue(actResult, "Failed at homepage -> clickLoginBtn()");
     }

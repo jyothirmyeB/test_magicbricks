@@ -2,7 +2,7 @@ package com.stepdefinition;
 
 import org.testng.Assert;
 import com.aventstack.extentreports.ExtentTest;
-import com.pages.InvalidComparisonPage;
+import com.pages.InvalidComparison_Page;
 import com.setup.BaseSteps;
 
 import io.cucumber.java.After;
@@ -15,7 +15,7 @@ import io.cucumber.java.en.When;
 
 public class InvalidComparisonSteps extends BaseSteps {
 
-    InvalidComparisonPage invalidComparisonPage;
+    InvalidComparison_Page invalidComparisonPage;
     ExtentTest extTest = Hooks.extTest;
     private String homePageUr = "https://www.magicbricks.com/";
 
@@ -39,7 +39,7 @@ public class InvalidComparisonSteps extends BaseSteps {
 
     @Given("I am on the home page for a new comparison")
     public void iAmOnTheHomePageForANewComparison() {
-        invalidComparisonPage = new InvalidComparisonPage(driver, extTest);
+        invalidComparisonPage = new InvalidComparison_Page(driver, extTest);
         String actUrl = driver.getCurrentUrl();
         Assert.assertTrue(actUrl.contains("magicbricks.com"),
                 "User is not on the Magicbricks home page. Current URL: " + actUrl);

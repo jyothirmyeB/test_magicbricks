@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
-import com.pages.InvalidLoginPage;
+import com.pages.InvalidLogin_Page;
 import com.setup.BaseSteps;
 
 import io.cucumber.java.After;
@@ -15,7 +15,7 @@ import io.cucumber.java.en.When;
 
 public class InvalidLoginSteps extends BaseSteps {
 
-    InvalidLoginPage invalidLoginPage;
+    InvalidLogin_Page invalidLoginPage;
     ExtentTest extTest = Hooks.extTest;
     
     @Before("@InvalidLogin")
@@ -35,7 +35,7 @@ public class InvalidLoginSteps extends BaseSteps {
 
     @Given("I am on the homepage of magicbricks")
     public void i_am_on_the_homepage_of_magicbricks() {
-        invalidLoginPage = new InvalidLoginPage(driver, extTest);
+        invalidLoginPage = new InvalidLogin_Page(driver, extTest);
         System.out.println("Browser launched via Hooks and Magicbricks website opened.");
     }
 

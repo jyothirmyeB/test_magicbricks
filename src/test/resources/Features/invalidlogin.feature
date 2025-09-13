@@ -5,7 +5,7 @@ Background:
      When I click on the login button of home page
      And I click the inner login button
      And I am redirected to the login page
-     
+#TS_MB_03     
   Scenario Outline: Login with invalid mobile number
     
     And I enter an invalid mobile number "<phone>" and captcha "<captcha>"

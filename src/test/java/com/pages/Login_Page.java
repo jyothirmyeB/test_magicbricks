@@ -18,7 +18,7 @@ import com.setup.BaseSteps;
 import com.setup.Reporter;
 
 
-public class LoginPage extends BaseSteps {
+public class Login_Page extends BaseSteps {
 	
 	 //for login button
 	 public static By homeLoginBtn = By.xpath("//*[@id=\"commercialIndex\"]/header/section[1]/div/div[2]/div[2]/a");
@@ -37,7 +37,7 @@ public class LoginPage extends BaseSteps {
     private WebDriverWait wait;
     private ExtentTest extTest;
 
-    public LoginPage(WebDriver driver, ExtentTest extTest) {
+    public Login_Page(WebDriver driver, ExtentTest extTest) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         this.extTest = extTest;
