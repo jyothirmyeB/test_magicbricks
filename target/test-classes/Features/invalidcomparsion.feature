@@ -5,6 +5,7 @@ Background:
      When I access the "Buy" tab
      And I navigate to the "Tips and Guides" section
      And I click on the "Compare" tab
+  
   Scenario: Invalid location for both comparison fields
     And I enter the first location "InvalidLocation1" and the second location "InvalidLocation2"
     And I click the compare button

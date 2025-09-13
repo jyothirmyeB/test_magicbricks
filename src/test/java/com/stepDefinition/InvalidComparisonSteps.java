@@ -3,7 +3,6 @@ package com.stepdefinition;
 import org.testng.Assert;
 import com.aventstack.extentreports.ExtentTest;
 import com.pages.InvalidComparisonPage;
-import com.pages.InvalidExploreLocationPage;
 import com.setup.BaseSteps;
 
 import io.cucumber.java.After;
@@ -12,7 +11,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
+
 
 public class InvalidComparisonSteps extends BaseSteps {
 
